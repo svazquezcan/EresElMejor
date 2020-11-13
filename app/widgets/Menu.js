@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor: '#000000',
     alignContent:'center',
-    //justifyContent:'center',
   },
   
   fila:{
@@ -39,30 +38,26 @@ const styles = StyleSheet.create({
 
 export class Menu extends React.Component {
 
-  viewMsg = ()=>{
-    Alert.alert("Has apretado el boton");
-  }
-
   render(){
     return(
       <View style={styles.contenedor}>
         <View style={styles.fila}>
-          <TouchableOpacity style={styles.boton} onPress={this.viewMsg}>
+          <TouchableOpacity style={styles.boton} onPress={() => this.props.navigate('Evolucion')}>
             <Text style={styles.textoBoton}>EVOLUCIÓN</Text>
           </TouchableOpacity>
           </View >
           <View style={styles.fila}>
-          <TouchableOpacity style={styles.boton} onPress={this.viewMsg}>
+          <TouchableOpacity style={styles.boton} onPress={() => this.props.navigate('NuevoReto')}>
             <Text style={styles.textoBoton}>NUEVO RETO</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.fila}>
-          <TouchableOpacity style={styles.boton} onPress={this.viewMsg}>
+          <TouchableOpacity style={styles.boton} onPress={() => this.props.navigate('Perfil')}>
             <Text style={styles.textoBoton}>PERFIL</Text>
           </TouchableOpacity>
           </View>
           <View style={styles.fila}>
-          <TouchableOpacity style={styles.boton} onPress={this.viewMsg}>
+          <TouchableOpacity style={styles.boton} onPress={() => this.props.navigate('Contactar')}>
             <Text style={styles.textoBoton}>CONTACTAR</Text>
           </TouchableOpacity>
         </View>

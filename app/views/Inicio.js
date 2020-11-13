@@ -1,8 +1,8 @@
 import React from 'react';
 import { Menu } from '../widgets/Menu.js';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { endAsyncEvent } from 'react-native/Libraries/Performance/Systrace';
-import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from 'react/cjs/react.production.min';
+//import { endAsyncEvent } from 'react-native/Libraries/Performance/Systrace';
+//import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from 'react/cjs/react.production.min';
 
 const styles = StyleSheet.create({
     contenedor: {
