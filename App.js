@@ -1,12 +1,13 @@
 import React from 'react';
-import { Inicio } from './app/views/Inicio.js';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Inicio } from './app/views/Inicio.js';
 import { Evolucion } from './app/views/Evolucion.js';
 import { NuevoReto } from './app/views/NuevoReto.js';
 import { Contactar } from './app/views/Contactar.js';
 import { Perfil } from './app/views/Perfil.js';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { DetalleReto } from './app/views/DetallleReto.js';
 
 const styles = StyleSheet.create({
   boton: {
@@ -90,6 +91,19 @@ export default function App() {
         component={Perfil}
         options={{
           title: 'Perfil', 
+          headerRight: () => (
+            <TouchableOpacity style={styles.boton} onPress={() => this.props.navigate('Inicio')}>
+              <Text style={styles.textoBoton}>INICIO</Text>
+            </TouchableOpacity>
+          ),
+        }}
+      />
+
+      <Stack.Screen
+        name='DetalleReto'
+        component={DetalleReto}
+        options={{
+          title: 'Detalle Reto', 
           headerRight: () => (
             <TouchableOpacity style={styles.boton} onPress={() => this.props.navigate('Inicio')}>
               <Text style={styles.textoBoton}>INICIO</Text>
