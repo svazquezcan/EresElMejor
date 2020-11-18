@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   lugar:{
     flex:3,
-    backgroundColor: '#0984e3',
+    backgroundColor: '#ffffff',
     color: '#ffffff',
     fontSize:20,
     textAlign:'center',

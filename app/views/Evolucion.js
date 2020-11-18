@@ -6,30 +6,16 @@ const styles = StyleSheet.create({
   contenedor:{
     flex:1,
     flexDirection:'column',
+    backgroundColor: '#ffffff'
   },
-  titulo:{
+  lugar:{
     flex:1,
     backgroundColor: '#0984e3',
     color: '#ffffff',
     fontSize:20,
     textAlign:'center',
-    borderColor:'#ffffff',
-    justifyContent:'center',
-    alignItems:'center',
-    flexDirection:'column',
-    borderColor:'#000000',
-    borderWidth:10,
-    flexGrow:100,
-    paddingVertical:75
-  },
-  lugar:{
-    flex:3,
-    backgroundColor: '#0984e3',
-    color: '#ffffff',
-    fontSize:20,
-    textAlign:'center',
     justifyContent:'space-around',
-    borderColor:'#000000',
+    borderColor:'#ffffff',
     flexDirection:'column',
     borderWidth:10,
     paddingVertical:200,
@@ -40,7 +26,6 @@ export class Evolucion extends React.Component {
   render(){
     return(
       <View style={styles.contenedor}>
-        <Text style={styles.titulo}>EVOLUCION</Text>
         <Text style={styles.lugar}>DETALLE</Text>
       </View>
     )
