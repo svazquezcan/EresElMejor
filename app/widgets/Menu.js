@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 const styles = StyleSheet.create({
   contenedor:{
@@ -47,8 +47,8 @@ export class Menu extends React.Component {
           </TouchableOpacity>
           </View >
           <View style={styles.fila}>
-          <TouchableOpacity style={styles.boton} onPress={() => this.props.navigate('NuevoReto')}>
-            <Text style={styles.textoBoton}>NUEVO RETO</Text>
+          <TouchableOpacity style={styles.boton} onPress={() => this.props.navigate('DetalleReto')}>
+            <Text style={styles.textoBoton}>DETALLE RETO</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.fila}>
@@ -66,3 +66,4 @@ export class Menu extends React.Component {
   }
 
 }
+ 

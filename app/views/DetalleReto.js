@@ -1,7 +1,5 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-
 
 const styles = StyleSheet.create({
   contenedor:{
@@ -41,16 +39,16 @@ const styles = StyleSheet.create({
 
 });
 
-
-export class NuevoReto extends React.Component {
+export class DetalleReto extends React.Component {
   render(){
     return(
       <View style={styles.contenedor}>
         <View style={styles.contenido}>
-          <Text>Hola estoy en Nuevo Reto</Text>
         </View>
+        <TouchableOpacity style={styles.menuInferior} onPress={() => this.props.navigation.navigate('NuevoReto')}>
+          <Text style={styles.textoBoton}>NUEVO RETO</Text>
+        </TouchableOpacity>  
       </View>
     )
   }
-
 }

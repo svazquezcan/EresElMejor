@@ -1,6 +1,5 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Menu } from '../widgets/Menu.js';
 
 const styles = StyleSheet.create({
   contenedor:{
@@ -42,6 +41,7 @@ export class Perfil extends React.Component {
       <View style={styles.contenedor}>
         <Text style={styles.titulo}>PERFIL</Text>
         <Text style={styles.lugar}>DETALLE</Text>
+
       </View>
     )
   }

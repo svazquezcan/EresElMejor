@@ -1,36 +1,55 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Menu } from '../widgets/Menu.js';
 
 const styles = StyleSheet.create({
   contenedor:{
-    flex:1,
-    flexDirection:'column',
-    backgroundColor: '#ffffff'
+    flex:1 ,
+    backgroundColor: '#ffffff',
+    alignContent:'center',
+    flexDirection: 'column',
+
   },
-  lugar:{
-    flex:1,
-    backgroundColor: '#0984e3',
-    color: '#ffffff',
-    fontSize:20,
-    textAlign:'center',
-    justifyContent:'space-around',
+  
+  contenido:{
+    flex:3,
+    justifyContent:'center',
+    alignContent:'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+    borderColor:'#000000',
+    backgroundColor:'#ffffff',
+  },
+
+  menuInferior:{
+    flex:0.5,
+    backgroundColor:'#0984e3',
+    justifyContent:'center',
+    alignItems:'center',
+    flexDirection: 'column',
     borderColor:'#ffffff',
-    flexDirection:'column',
-    borderWidth:10,
-    paddingVertical:200,
+    borderWidth:2,
+    borderRadius:20,
+
+  },
+  textoBoton:{
+    color:'#ffffff',
+    fontWeight:"bold",
+    fontSize:18
   }
+
 });
 
 export class Evolucion extends React.Component {
   render(){
     return(
       <View style={styles.contenedor}>
-        <Text style={styles.lugar}>DETALLE</Text>
+        <View style={styles.contenido}>
+        </View>
+        <TouchableOpacity style={styles.menuInferior} onPress={() => this.props.navigation.navigate('NuevoReto')}>
+          <Text style={styles.textoBoton}>NUEVO RETO</Text>
+        </TouchableOpacity>  
       </View>
     )
   }
-
 }
-
-
