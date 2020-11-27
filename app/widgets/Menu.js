@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
 export class Menu extends React.Component {
 
   render(){
+
+
+
     return(
       <View style={styles.contenedor}>
         <View style={styles.fila}>
