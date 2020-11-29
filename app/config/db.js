@@ -1,8 +1,6 @@
 import firebase from "firebase";
 import "firebase/firestore";
-
-src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"
-
+ 
   let firebaseConfig = {
     apiKey: "AIzaSyDSJlz2JSfdtWHpWmJRvkUle1eIJmC4Mu4",
     authDomain: "thebest-110a1.firebaseapp.com",

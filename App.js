@@ -68,7 +68,8 @@ const navigation = useNavigation();
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function App () {
+
   return (
   <NavigationContainer>
     <Stack.Navigator 
@@ -106,7 +107,6 @@ export default function App() {
       component={DetalleReto}
       options={{
         title: 'Detalle Reto', 
-        headerLeft: null,
       }}
     />
 
@@ -115,6 +115,7 @@ export default function App() {
       component={Contactar}
       options={{
         title: 'Contactar', 
+        headerLeft: null,
       }}
     />
 
@@ -132,10 +133,16 @@ export default function App() {
       component={NuevoReto}
       options={{
         title: 'Nuevo Reto', 
+        headerLeft: null,
       }}
       />
     </Stack.Navigator>
   </NavigationContainer>
-    );
+    
+  );
+
 }
+
+
+
   

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
+
 const styles = StyleSheet.create({
   contenedor:{
     flex:1 ,
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
   },
 
   menuInferior:{
-    flex:0.5,
+    flex:0.15,
     backgroundColor:'#0984e3',
     justifyContent:'center',
     alignItems:'center',
@@ -35,15 +36,22 @@ const styles = StyleSheet.create({
     color:'#ffffff',
     fontWeight:"bold",
     fontSize:18
+  },
+
+  detalleReto:{
+    borderColor:'#ffffff',
+    color: '#000000'
   }
 
 });
 
 export class DetalleReto extends React.Component {
   render(){
-    return(
+      return(
       <View style={styles.contenedor}>
-        <View style={styles.contenido}>
+        <View style={styles.contenedor}>
+          <Text style={styles.detalleReto}>{this.props.route.params.titulo}</Text>
+          <Text style={styles.detalleReto}>{this.props.route.params.img}</Text>
         </View>
         <TouchableOpacity style={styles.menuInferior} onPress={() => this.props.navigation.navigate('NuevoReto')}>
           <Text style={styles.textoBoton}>NUEVO RETO</Text>
