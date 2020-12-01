@@ -1,55 +1,112 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-
+import { Text, View, StyleSheet, Alert } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Input, Button } from 'react-native-elements';
 
 const styles = StyleSheet.create({
   contenedor:{
     flex:1 ,
     backgroundColor: '#ffffff',
     alignContent:'center',
-    flexDirection: 'column',
-
+    flexDirection: 'column'
   },
-  
-  contenido:{
-    flex:3,
-    justifyContent:'center',
-    alignContent:'center',
-    flexDirection: 'column',
-    alignItems: 'center',
-    borderColor:'#000000',
-    backgroundColor:'#ffffff',
+  botonGuardar:{
+    flexDirection: 'row',
+    alignContent: 'center',
+    marginLeft:10
   },
-
-  menuInferior:{
-    flex:0.5,
-    backgroundColor:'#0984e3',
-    justifyContent:'center',
-    alignItems:'center',
-    flexDirection: 'column',
-    borderColor:'#ffffff',
-    borderWidth:2,
-    borderRadius:20,
-
-  },
-  textoBoton:{
-    color:'#ffffff',
-    fontWeight:"bold",
-    fontSize:18
-  }
-
 });
 
 
+
 export class NuevoReto extends React.Component {
-  render(){
-    return(
-      <View style={styles.contenedor}>
-        <View style={styles.contenido}>
-          <Text>Hola estoy en Nuevo Reto</Text>
-        </View>
-      </View>
-    )
+  constructor() {
+    super();
+    this.state = {
+      nombre: '',
+      detalle: '',
+      categoria: '',
+      tiempo: '',
+      periocidad: ''
+    };
   }
 
+  changeNombre(nombre){
+    this.setState({nombre})
+  }
+
+  changeDetalle(detalle){
+    this.setState({detalle})
+  }
+
+  changeCategoria(categoria){
+    this.setState({categoria})
+  }
+
+  changeTiempo(tiempo){
+    this.setState({tiempo})
+  }
+
+  changePeriocidad(periocidad){
+    this.setState({periocidad})
+  }
+
+  render(){
+    return(
+      <View>
+        <Text style={{marginLeft:10, marginTop:20, marginBottom:25, fontSize:25,fontWeight:"bold"}}>Nuevo Reto</Text>
+        <Input 
+          type='text'
+          label='nombre'
+          placeholder='Escribe tu nuevo reto' 
+          value={this.state.nombre}
+          onChangeText={(nombre) => this.changeNombre(nombre)}
+        />
+
+        <Input
+          type='text'
+          label='detalle'
+          value={this.state.detalle}
+          placeholder='Describe tu reto'
+          onChangeText={(detalle) => this.changeDetalle(detalle)}
+        />
+
+        <Input
+          type='text'
+          label='categoria'
+          value={this.state.categoria}
+          placeholder='Cual es la categoria'
+          onChangeText={(categoria) => this.changeCategoria(categoria)}
+        />
+
+
+        <Input
+          type='number'
+          label='tiempo'
+          value={this.state.tiempo}
+          placeholder="Tiempo en dias que dura el reto"
+          onChangeText={(tiempo) => this.changeTiempo(tiempo)}
+          />
+
+
+        <Input
+          type='number'
+          label='periocidad'
+          value={this.state.periocidad}
+          placeholder='Cada cuanto avisa en dias'
+          onChangeText={(periocidad) => this.changePeriocidad(periocidad)}
+        />
+
+        <Button style={styles.botonGuardar}
+          icon={{
+            name: "save",
+            size: 20,
+            color: "white",
+          }}
+          title="GUARDAR"
+        />
+        </View>
+
+    )
+  }
 }
