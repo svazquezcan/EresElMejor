@@ -2,6 +2,9 @@ import React from 'react';
 import { Text, View, StyleSheet, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
+import { db } from '../config/db.js';
+
+
 
 const styles = StyleSheet.create({
   contenedor:{
@@ -30,6 +33,27 @@ export class NuevoReto extends React.Component {
       periocidad: ''
     };
   }
+
+  addNewReto = async () =>{
+    if (this.state.nombre === '' || this.state.detalle === '' || this.state.categoria === ''||
+     this.state.tiempo === ''|| this.state.periocidad === ''){
+      alert('Por favor rellena todos los campos')
+    }else{
+      await db.collection('retos').add({
+        nombre: this.state.nombre,
+        detalle: this.state.detalle,
+        categoria: this.state.categoria,
+        tiempo: this.state.tiempo,
+        periocidad: this.state.periocidad,
+        completado: '0%'
+      })
+      alert('Se ha guardado el nuevo reto')
+
+      this.props.navigation.navigate("Evolucion");
+    }
+    
+  }
+   
 
   changeNombre(nombre){
     this.setState({nombre})
@@ -98,6 +122,7 @@ export class NuevoReto extends React.Component {
         />
 
         <Button style={styles.botonGuardar}
+          onPress={() => this.addNewReto()}
           icon={{
             name: "save",
             size: 20,
