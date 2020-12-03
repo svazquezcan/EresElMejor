@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 
   menuInferior:{
-    flex:0.2,
+    flex:0.1,
     backgroundColor:'#0984e3',
     justifyContent:'center',
     alignItems:'center',
@@ -151,6 +151,7 @@ export class Evolucion extends React.Component {
       return(
       <View style={styles.contenedor}>
         <FlatList 
+        style={styles.contenedor}
         data={this.state.retos}
         ItemSeparatorComponent={this.itemSeparator}
         renderItem={item => this.renderItem(item)}
