@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { ProgressBar } from '@react-native-community/progress-bar-android';
 import { db } from '../config/db.js';
 
 const styles = StyleSheet.create({
@@ -143,6 +144,10 @@ export class Evolucion extends React.Component {
       return(
       <View style={styles.contenedor}>
         <Text>Cargando</Text>
+        <ProgressBar 
+          styleAttr="Horizontal"
+          indeterminate={true}
+        />
       </View>
       )
     }
