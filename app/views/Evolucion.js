@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
-import { ProgressBar } from '@react-native-community/progress-bar-android';
+import ProgressBar from 'react-native-progress/Bar';
 import { db } from '../config/db.js';
 
 const styles = StyleSheet.create({
@@ -87,32 +87,45 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 20
+  },
 
-  }
+  label: {
+    color: '#999',
+    fontSize: 14,
+    fontWeight: 'bold',
+    margin: 20,
+    flexDirection: "column",
+    justifyContent: "center"
+  },
 
 });
 
-export class Evolucion extends React.Component {
 
+export class Evolucion extends React.Component {
+  
   state = {
     retos: [],
-    loading: true
+    loading: true,
+    progress: 0.0
   }
 
   constructor(props){
     super();  
   }
-
+  
   componentDidMount(){
     let retos=[];
     db.collection("retos").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         retos.push({"key":doc.id, "value":doc.data()});
+        this.setState({progress:this.state.progress + (1/retos.length)*100})
       });
-      this.setState({retos:retos, loading:false}, () => {
-      });
+      setTimeout(() => {
+        this.setState({retos:retos, loading:false});
+      }, 1500);
     });
   }
+  
 
   itemSeparator = () => {
     return (
@@ -121,7 +134,7 @@ export class Evolucion extends React.Component {
               height: 0.5,
               width: '100%',
               backgroundColor: '#C8C8C8'
-          }}
+          }}  
       />
     );
   };
@@ -139,15 +152,24 @@ export class Evolucion extends React.Component {
   </View>
 
   render(){
+    const { progress } = this.state.progress;
 
     if(this.state.loading){
       return(
       <View style={styles.contenedor}>
-        <Text>Cargando</Text>
-        <ProgressBar 
-          styleAttr="Horizontal"
-          indeterminate={true}
-        />
+        <Text style={styles.label}>Cargando retos</Text>
+          <ProgressBar
+            marginLeft={20}
+            marginRight={20}
+            progress={this.state.progress}
+            width={null}
+            borderColor="#DDD"
+            fillColor="lightblue"
+            barColor="blue"
+            borderRadius={5}
+            useNativeDriver={true}
+            
+          />
       </View>
       )
     }
