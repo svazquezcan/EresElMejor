@@ -124,8 +124,8 @@ export class Evolucion extends React.Component {
         this.setState({progress:this.state.progress + (1/retos.length)*100})
         let nombre = doc.data().nombre
         let periocidad = doc.data().periocidad
-        console.log(showNotification);
         showNotification (nombre, 'Tu reto acaba de empezar. Tienes' + periocidad + 'días para llevarlo a cabo', 'ereselmejor');
+        showNotification2 (nombre, 'Tu reto ha finalizado ¿Has cumplido tus objetivos?', 'ereselmejor', periocidad);
       });
       setTimeout(() => {
         this.setState({retos:retos, loading:false});
