@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Eres el mejor",
+    "name": "ereselmejor",
     "slug": "EresElMejor",
     "privacy": "public",
     "description":"La mejor app de retos diseñada especialmente para ti",
@@ -20,12 +20,12 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.uoc.EresElMejor",
+      "bundleIdentifier": "com.ereselmejor",
       "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.uoc.EresElMejor",
+      "package": "com.ereselmejor",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptative-icon-EEM.png",

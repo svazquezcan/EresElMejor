@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1067959958433",
+    "firebase_url": "https://thebest-110a1.firebaseio.com",
+    "project_id": "thebest-110a1",
+    "storage_bucket": "thebest-110a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067959958433:android:a4c930afe8efa19ffe29e0",
+        "android_client_info": {
+          "package_name": "com.ereselmejor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067959958433-ittt9mgm2svai29tssaej6b7u0oucvtb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOSPUGrOFhsk4Fbei88IknickNWN-DfpM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067959958433-ittt9mgm2svai29tssaej6b7u0oucvtb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

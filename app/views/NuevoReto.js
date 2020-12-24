@@ -1,8 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, Alert } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, Button } from 'react-native-elements';
-import { db } from '../config/db.js';
+import firestore from '@react-native-firebase/firestore';
 
 const styles = StyleSheet.create({
   contenedor:{
@@ -40,7 +39,7 @@ export class NuevoReto extends React.Component {
       alert('Por favor, revisa que los campos cumplen los requisitos indicados')
     }
     else{
-      await db.collection('retos').add({
+      await firestore().collection('retos').add({
         nombre: this.state.nombre,
         detalle: this.state.detalle,
         categoria: this.state.categoria,
