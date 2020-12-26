@@ -2,6 +2,9 @@ import React from 'react';
 import { Text, View, StyleSheet, Alert } from 'react-native';
 import { Input, Button } from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
+import { showNotification2, showNotification, handleCancel } from '../config/scheduledNotification'
+
+
 
 const styles = StyleSheet.create({
   contenedor:{
@@ -48,12 +51,15 @@ export class NuevoReto extends React.Component {
         completado: '0%'
       })
       alert('El nuevo reto se ha guardado correctamente 👍')
-
+      let nombre = this.state.nombre
+      let periocidad = this.state.periocidad
+      showNotification (nombre, 'Tu reto acaba de empezar. Tienes' + periocidad + 'días para llevarlo a cabo', 'ereselmejor');
+      showNotification2 (nombre, 'Tu reto ha finalizado ¿Has cumplido tus objetivos?', 'ereselmejor', periocidad);
       this.props.navigation.navigate("Evolucion")
     }
     
   }
-   
+  
 
   changeNombre(nombre){
     this.setState({nombre})

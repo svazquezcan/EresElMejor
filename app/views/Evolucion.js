@@ -2,11 +2,9 @@ import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
 import firestore from '@react-native-firebase/firestore';
-import { showNotification, showNotification2, handleCancel } from '../config/scheduledNotification'
 
-console.log(showNotification);
 
-const styles = StyleSheet.create({
+  const styles = StyleSheet.create({
   contenedor:{
     flex:3 ,
     backgroundColor: '#ffffff',
@@ -122,10 +120,6 @@ export class Evolucion extends React.Component {
       querySnapshot.forEach((doc) => {
         retos.push({"key":doc.id, "value":doc.data()});
         this.setState({progress:this.state.progress + (1/retos.length)*100})
-        let nombre = doc.data().nombre
-        let periocidad = doc.data().periocidad
-        showNotification (nombre, 'Tu reto acaba de empezar. Tienes' + periocidad + 'días para llevarlo a cabo', 'ereselmejor');
-        showNotification2 (nombre, 'Tu reto ha finalizado ¿Has cumplido tus objetivos?', 'ereselmejor', periocidad);
       });
       setTimeout(() => {
         this.setState({retos:retos, loading:false});
