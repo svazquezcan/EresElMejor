@@ -1,6 +1,6 @@
 package com.ereselmejor;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;  // <--- Import Package
-
+import com.reactnativecommunity.cameraroll.CameraRollPackage;
 
 import android.app.Application;
 import android.content.Context;

@@ -28,7 +28,8 @@ export class NuevoReto extends React.Component {
       detalle: '',
       categoria: '',
       tiempo: '',
-      periocidad: ''
+      periocidad: '',
+      imageData: ''
     };
   }
 
@@ -48,7 +49,8 @@ export class NuevoReto extends React.Component {
         categoria: this.state.categoria,
         tiempo: this.state.tiempo,
         periocidad: this.state.periocidad,
-        completado: '0%'
+        completado: '0%',
+        imageData: null
       })
       alert('El nuevo reto se ha guardado correctamente 👍')
       let nombre = this.state.nombre

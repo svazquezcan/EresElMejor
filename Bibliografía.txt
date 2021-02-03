@@ -1,0 +1,65 @@
+Vídeos Paco Gómez
+
+Proyecto con React Native: Introducción y presentación
+https://www.youtube.com/watch?v=RZ542DyK7FM&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=1
+
+Proyecto con React Native: Introducción a React Native
+https://www.youtube.com/watch?v=lU758dR15Mg&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=2&t=1s
+
+Proyecto con React Native: Creación de un proyecto en blanco
+https://www.youtube.com/watch?v=-fk0d2oW2pw&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=4
+
+Proyecto con React Native: Estructura de directorios
+https://www.youtube.com/watch?v=zwNM4cRzklE&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=5
+
+Proyecto con React Native: Usando Expo
+https://www.youtube.com/watch?v=3rwHCB0wYVk&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=6
+
+Proyecto con React Native: Componentes básicos
+https://www.youtube.com/watch?v=LBK8gGiWo8k&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=7
+
+Proyecto con React Native: Componentes View y Text
+https://www.youtube.com/watch?v=wP0t0oolTJY&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=8
+
+Proyecto con React Native: Controlar un componente con Props y State
+https://www.youtube.com/watch?v=k_TWmTkGBlw&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=9
+
+Proyecto con React Native: Diseño y estilo
+https://www.youtube.com/watch?v=JvqXXmWQwX8&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=10
+
+Proyecto con React Native: Crear un menú de entrada
+https://www.youtube.com/watch?v=8NhP7Gvp0mU&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=11
+
+Proyecto con React Native: Diseño con Flex
+https://www.youtube.com/watch?v=d2vMqIC0_IE&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=12
+
+Proyecto con React Native: React Navigation
+https://www.youtube.com/watch?v=GuX9c11HoxE&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=13
+
+Proyecto con React Native: Navegar entre ventanas
+https://www.youtube.com/watch?v=neRdBOj_36c&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=14
+
+Proyecto con React Native: Firebase
+https://www.youtube.com/watch?v=pUVi-YqBqnc&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=15&t=2s
+
+Proyecto con React Native: Recuperar datos desde Firebase
+https://www.youtube.com/watch?v=uUSrlZkp7ME&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=16
+
+Proyecto con React Native: FlatList
+https://www.youtube.com/watch?v=N_n44BzwNE8&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=17&t=1s
+
+Proyecto con React Native: Pasar parámetros y datos entre pantallas
+https://www.youtube.com/watch?v=DFDyA0wu7g8&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=18
+
+Proyecto con React Native: React Native Elements
+https://www.youtube.com/watch?v=9oeIQdEVS-o&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=19
+
+Proyecto con React Native: Cámara
+https://www.youtube.com/watch?v=p43lKdO6mrg&list=PLHOIMpPkYJeEtjchTkiQHRi0qWbrC433n&index=20&t=8s
+
+cameraRoll (imagen insertada en Reto) 
+https://medium.com/@nivedithagowda/select-and-display-images-from-the-photo-gallery-or-camera-roll-in-react-native-app-948b8becf736
+https://medium.com/javascript-in-plain-english/how-to-upload-photos-to-firebase-storage-in-react-native-dc3d2f4771b8
+
+Flatlist
+https://medium.com/react-native-development/how-to-use-the-flatlist-component-react-native-basics-92c482816fe6

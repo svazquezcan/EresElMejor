@@ -138,6 +138,7 @@ android {
         applicationId 'com.ereselmejor'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        vectorDrawables.useSupportLibrary = true
         versionCode 1
         versionName "1.0.0"
     }
@@ -206,6 +207,8 @@ dependencies {
         exclude group:'com.facebook.flipper'
     }
     addUnimodulesDependencies()
+    compile project(':@react-native-community_cameraroll')
+
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";

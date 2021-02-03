@@ -1,7 +1,9 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { Image, Text, View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
 import firestore from '@react-native-firebase/firestore';
+import { set } from 'react-native-reanimated';
+import { DetalleReto } from './DetalleReto.js'
 
 
   const styles = StyleSheet.create({
@@ -103,19 +105,20 @@ import firestore from '@react-native-firebase/firestore';
 
 
 export class Evolucion extends React.Component {
-  
-  state = {
-    retos: [],
-    loading: true,
-    progress: 0.0
-  }
 
   constructor(props){
-    super();  
+    super(); 
+    this.state = {
+      isMounted: false,
+      retos: [],
+      loading: true,
+      progress: 0.0
+    }
   }
-  
+ 
   componentDidMount(){
     let retos=[];
+    let isMounted=false;
     firestore().collection("retos").get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         retos.push({"key":doc.id, "value":doc.data()});
@@ -124,12 +127,40 @@ export class Evolucion extends React.Component {
       setTimeout(() => {
         this.setState({retos:retos, loading:false});
       }, 1500);
+      this.setState({isMounted:true})
     });
   }
-  
+
+  /*reRender(){
+  console.log("holita")
+  let retosNuevos=[];
+    firestore().collection("retos").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        retosNuevos.push({"key":doc.id, "value":doc.data()});
+    });
+    this.setState({retos:retosNuevos})
+    })
+  }*/
+
+  componentDidUpdate(prevProps, prevState){
+    let retosNuevos = [];
+    let isMounted = this.state.isMounted;
+    if (isMounted){
+      firestore().collection("retos").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          retosNuevos.push({"key":doc.id, "value":doc.data()});
+      });
+          if (prevState.retos !== retosNuevos){
+            this.setState({retos:retosNuevos})
+          }
+          else{
+          }
+      });
+    }
+  }
 
   itemSeparator = () => {
-    return (
+    return ( 
       <View
           style={{
               height: 0.5,
@@ -140,10 +171,9 @@ export class Evolucion extends React.Component {
     );
   };
 
-
   renderItem = data =>
   <View style={styles.completado}>
-    <TouchableOpacity style={styles.reto} onPress={() => this.props.navigation.navigate('DetalleReto',{'titulo':data.item.value.nombre,'img':data.item.value.detalle})}>
+    <TouchableOpacity style={styles.reto} onPress={() => this.props.navigation.navigate('DetalleReto',{'titulo':data.item.value.nombre,'detalle':data.item.value.detalle, 'image':data.item.value.imageData})}>
       <Text style={styles.nombre}>{data.item.value.nombre}</Text> 
       <Text style={styles.detalle}>{data.item.value.detalle}</Text>
     </TouchableOpacity>

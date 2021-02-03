@@ -9,6 +9,7 @@ import { Perfil } from './app/views/Perfil.js';
 import { Inicio } from './app/views/Inicio.js';
 import { DetalleReto } from './app/views/DetalleReto.js';
 import { NuevoReto } from './app/views/NuevoReto.js';
+import { VerFotos } from './app/views/VerFotos.js';
 
 
 const styles = StyleSheet.create({
@@ -136,6 +137,15 @@ export default function App () {
         headerLeft: null,
       }}
       />
+
+    <Stack.Screen
+      name='VerFotos'
+      component={VerFotos}
+      options={{
+        title: 'Ver Fotos', 
+      }}
+      />
+
     </Stack.Navigator>
   </NavigationContainer>
     
