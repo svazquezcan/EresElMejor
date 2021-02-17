@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useNavigation } from '@react-navigation/native';
 import { Evolucion } from './app/views/Evolucion.js';
 import { Contactar } from './app/views/Contactar.js';
@@ -10,6 +11,10 @@ import { Inicio } from './app/views/Inicio.js';
 import { DetalleReto } from './app/views/DetalleReto.js';
 import { NuevoReto } from './app/views/NuevoReto.js';
 import { VerFotos } from './app/views/VerFotos.js';
+import { LogIn } from './app/views/LogIn.js';
+import { Cargando } from './app/views/Cargando.js';
+
+
 
 
 const styles = StyleSheet.create({
@@ -66,15 +71,24 @@ const navigation = useNavigation();
 
 }
 
-
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Inicio" component={Inicio} />
+      <Tab.Screen name="Perfil" component={Perfil} />
+    </Tab.Navigator>
+  );
+}
 
 export default function App () {
 
   return (
   <NavigationContainer>
     <Stack.Navigator 
-    initialRouteName="Inicio"
+    initialRouteName="Cargando"
     screenOptions={{ headerStyle: { 
       backgroundColor: '#0984e3' 
     },
@@ -146,7 +160,26 @@ export default function App () {
       }}
       />
 
+    <Stack.Screen
+      name='LogIn'
+      component={LogIn}
+      options={{
+        title: 'LogIn', 
+        headerShown: false
+      }}
+      />
+
+      <Stack.Screen
+      name='Cargando'
+      component={Cargando}
+      options={{
+        title: 'Cargando', 
+        headerShown: false
+      }}
+      />
+
     </Stack.Navigator>
+
   </NavigationContainer>
     
   );

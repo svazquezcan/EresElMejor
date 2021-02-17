@@ -153,7 +153,7 @@ export class DetalleReto extends React.Component {
                 case 1:
                     this.choosePhotosFromGallery();
                     break;
-                default:
+                default:  
                     break;
             }
         },

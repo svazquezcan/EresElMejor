@@ -1,9 +1,8 @@
 import React from 'react';
-import { Image, Text, View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import ProgressBar from 'react-native-progress/Bar';
 import firestore from '@react-native-firebase/firestore';
-import { set } from 'react-native-reanimated';
-import { DetalleReto } from './DetalleReto.js'
+
 
 
   const styles = StyleSheet.create({
