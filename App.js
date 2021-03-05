@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useReducer, useState } from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DrawerActions } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import { Evolucion } from './app/views/Evolucion.js';
 import { Contactar } from './app/views/Contactar.js';
@@ -13,7 +13,8 @@ import { NuevoReto } from './app/views/NuevoReto.js';
 import { VerFotos } from './app/views/VerFotos.js';
 import { LogIn } from './app/views/LogIn.js';
 import { Cargando } from './app/views/Cargando.js';
-
+import { Icon } from 'react-native-elements';
+import { TabRouter } from 'react-navigation';
 
 
 
@@ -57,7 +58,15 @@ const styles = StyleSheet.create({
     color:'#ffffff',
     fontWeight:"bold",
     fontSize:18
-  }
+  },
+  animatedIcon: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 2,
+    borderRadius: 160,
+    opacity: 0
+  },
 });
 
 function MyBackButton() {
@@ -71,22 +80,51 @@ const navigation = useNavigation();
 
 }
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
-function MyTabs() {
+function MySpecialBackButton() {
+  const navigation = useNavigation();
+  
+    return ( 
+      <Icon reverse
+        name="arrow-back"
+        color="#0984e3"
+        onPress={() => {navigation.replace('Evolucion')}}/>
+    );
+
+  }
+
+const Stack = createStackNavigator();
+const Tab = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
+
+
+
+function InicioDrawer() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Inicio" component={Inicio} />
-      <Tab.Screen name="Perfil" component={Perfil} />
-    </Tab.Navigator>
+    <Drawer.Navigator>
+      <Drawer.Screen 
+        name="Inicio" 
+        component={Inicio} 
+        options={({ route }) => ({ title: "Hola " + route.params.email })}
+      />
+      <Drawer.Screen 
+        name="Perfil" 
+        component={Perfil} 
+      />
+      <Drawer.Screen 
+        name="Contáctanos" 
+        component={Contactar} 
+      />
+    </Drawer.Navigator>
   );
 }
 
 export default function App () {
+  let pressMenu
 
   return (
-  <NavigationContainer>
+  
+  <NavigationContainer ref={navigationRef => { pressMenu = navigationRef}}>
     <Stack.Navigator 
     initialRouteName="Cargando"
     screenOptions={{ headerStyle: { 
@@ -103,9 +141,21 @@ export default function App () {
 
     <Stack.Screen
       name="Inicio"
-      component={Inicio}
-      options={{title: 'Inicio', 
-      headerShown: false}}
+      component={InicioDrawer}
+      options={{ 
+        headerLeft: () =>  <Icon reverse
+          name="menu"
+          color="#0984e3"
+          onPress={() => {
+          pressMenu.dispatch(DrawerActions.toggleDrawer());
+          }}
+          />,
+        headerRight: null,
+        headerTitle: null,
+        headerTitleStyle: {
+          alignItems: 'flex-start'
+        }  
+      }}
     />
 
     <Stack.Screen
@@ -122,6 +172,9 @@ export default function App () {
       component={DetalleReto}
       options={{
         title: 'Detalle Reto', 
+        headerLeft: () => (
+          <MySpecialBackButton style={styles.boton}/>
+        )
       }}
     />
 
@@ -183,6 +236,8 @@ export default function App () {
   </NavigationContainer>
     
   );
+
+  
 
 }
 

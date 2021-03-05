@@ -8,7 +8,16 @@ export class Cargando extends React.Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      this.props.navigation.navigate(user ? 'Inicio' : 'LogIn'), console.log("user", user)
+      if (user == null){
+        this.props.navigation.navigate(user ? 'Inicio' : 'LogIn')
+      }
+      else {
+        const email = user.email
+        this.props.navigation.navigate(user ? 'Inicio' : 'LogIn', {
+          screen: 'Inicio',
+          params: {'email': email }
+        })
+      }
     })
   }
 

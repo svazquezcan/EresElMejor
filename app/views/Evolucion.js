@@ -126,8 +126,9 @@ export class Evolucion extends React.Component {
       setTimeout(() => {
         this.setState({retos:retos, loading:false});
       }, 1500);
-      this.setState({isMounted:true})
     });
+    this.setState({isMounted:true})
+    console.log("componentDidMount")
   }
 
   /*reRender(){
@@ -141,22 +142,23 @@ export class Evolucion extends React.Component {
     })
   }*/
 
-  componentDidUpdate(prevProps, prevState){
+  /*componentDidUpdate(prevProps, prevState){
+    console.log("prevProps", prevProps)
     let retosNuevos = [];
     let isMounted = this.state.isMounted;
     if (isMounted){
       firestore().collection("retos").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           retosNuevos.push({"key":doc.id, "value":doc.data()});
-      });
-          if (prevState.retos !== retosNuevos){
+        });
+          if (JSON.stringify(prevState.retos) !== JSON.stringify(this.state.retos)){
+            console.log("prevState.retos", prevState.retos)
+            console.log("nuevosRetos", this.state.retos)
             this.setState({retos:retosNuevos})
-          }
-          else{
           }
       });
     }
-  }
+  }*/
 
   itemSeparator = () => {
     return ( 

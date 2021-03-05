@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Text, View } from 'react-native';
+import { Alert, Text, View, ToastAndroid } from 'react-native';
 import  LoginScreen  from '../widgets/LoginScreen.tsx';
 import firebase from '@react-native-firebase/app'
 import '@react-native-firebase/auth';
@@ -82,8 +82,12 @@ export class LogIn extends React.Component {
                   firebase
                   .auth()
                   .signInWithEmailAndPassword(this.state.email, this.state.password)
-                  .then(() => this.props.navigation.navigate('Inicio'))
-                  .catch(error => this.setState({ errorMessage: error }, () => console.log("errorLogin", errorMessage)))
+                  .then(() => this.props.navigation.navigate('Inicio'), ToastAndroid.show('Usuario logueado con éxito', ToastAndroid.SHORT)                  )
+                  .catch(error => {
+                    this.setState({ errorMessage: error }), 
+                    ToastAndroid.show(this.state.errorMessage, ToastAndroid.SHORT), 
+                    () => console.log("errorMessage", errorMessage)
+                  })
               }
             }}
             onPressRegister={()=> {
@@ -103,7 +107,7 @@ export class LogIn extends React.Component {
                     Alert.alert(
                       'Revisar contraseña',
                       'Las contraseñas no coinciden.',
-                      [
+                      [                   
                         {
                           text: 'Lo reviso',
                           onPress: () => console.log('Ok pressed'),

@@ -36,6 +36,9 @@ const styles = StyleSheet.create({
 
 });
 
+export const navigationRef = React.createRef();
+
+
 export class Menu extends React.Component {
 
 
